@@ -14,8 +14,8 @@ def scrape_books():
         rating = book.find('p', class_='star-rating')['class'][1]
         availability = book.find('p', class_='instock availability').text.strip()
         books.append({'Title': title, 'Price': price, 'Rating': rating, 'Availability': availability})
-    df = pd.DataFrame(books)
-    df.to_csv('books.csv', index=False)
+    df = pd.DataFrame(book)
+    df.to_csv('books.csv', index=False, encoding='utf-8-sig')
     print(df.head())
 
 scrape_books()
